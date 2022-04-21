@@ -1,5 +1,5 @@
 # nf-reinforce
-![Unity Version](https://img.shields.io/badge/Unity-2018.1.0f2-orange.svg)
+![Unity Version](https://img.shields.io/badge/Unity-v2020.3.18f1-red.svg)
 ![OV Version](https://img.shields.io/badge/OpenVibe-3.0.0-blue.svg)
 
 ## Publications
