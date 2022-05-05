@@ -25,6 +25,8 @@ public class spritesBehabiour : MonoBehaviour
 
     private float scallingFactor = 3.4f;
 
+    public static float timeout = 3.0f;
+
     void Start()
     {
 
@@ -37,7 +39,7 @@ public class spritesBehabiour : MonoBehaviour
 
     void initSprites()
     {
-        for (int i = 1; i < 10; i++)
+        for (int i = 0; i <= 10; i++)
         {
           spritesGO[i].GetComponent<SpriteRenderer>().enabled = false;
 
@@ -46,7 +48,7 @@ public class spritesBehabiour : MonoBehaviour
 
     void disableSprites(GameObject[] a,int now)
     {
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 11; i++)
         {
             if (i!=now)
                 spritesGO[i].GetComponent<SpriteRenderer>().enabled = false;
@@ -58,7 +60,18 @@ public class spritesBehabiour : MonoBehaviour
     {
         normalizedInput = receiver.normalizedInput;
         normalizedThreshold = valueScript.normalizedThreshold;
-        Debug.Log(normalizedInput);
+        //Debug.Log(normalizedInput);
+
+        if (normalizedInput > 0.6f)
+        {
+            timeout -= Time.deltaTime;
+            Debug.Log("timeout: "+ timeout + " input: " + normalizedInput);
+        }
+        else
+        {
+            timeout = 3.0f;
+            Debug.Log("RESET: " + timeout);
+        }
 
         if (normalizedInput > 0.1f && normalizedInput < 0.2f)
 
@@ -89,7 +102,6 @@ public class spritesBehabiour : MonoBehaviour
             spritesGO[4].GetComponent<SpriteRenderer>().enabled = true;
             Debug.Log("entrou");
 
-
         }
 
         if (normalizedInput > 0.5f && normalizedInput < 0.6f)
@@ -99,6 +111,45 @@ public class spritesBehabiour : MonoBehaviour
             spritesGO[5].GetComponent<SpriteRenderer>().enabled = true;
 
         }
+
+        if (normalizedInput > 0.6f && timeout <= 0.0f)
+        {
+            disableSprites(spritesGO, 6);
+            spritesGO[6].GetComponent<SpriteRenderer>().enabled = true;
+            //timeout = 1.0f;
+            Debug.Log("ABOVE THRESHOLD!");
+                
+        }
+
+        /*
+       if (normalizedInput > 0.6f)
+
+       {
+          void OnTriggerEnter(Collider other)
+           {
+               StartCoroutine(ShowAndHide(spritesGO[6], 0.05f)); // 1 second
+           }
+           IEnumerator ShowAndHide(GameObject spritesGO, float delay)
+           {
+               spritesGO.SetActive(true);
+               yield return new WaitForSeconds(delay);
+               spritesGO.SetActive(false);
+           }
+
+          disableSprites(spritesGO, 5);
+          spritesGO[6].GetComponent<SpriteRenderer>().enabled = true;
+         
+  
+
+
+       
+            if (normalizedInput >= 0.6f)
+
+            {
+                StartCoroutine(ShowAndHide(spritesGO, normalizedInput));
+
+            }
+         */
 
         /* normalizedInput = receiver.normalizedInput;
          normalizedThreshold = valueScript.normalizedThreshold;
@@ -130,9 +181,60 @@ public class spritesBehabiour : MonoBehaviour
          //sphere.GetComponent<Renderer>().material.color = useColor ? lerpedColor : Color.white;
 
      */
-
-
-        //ToDO: Lerp
-        // https://forum.unity.com/threads/lerp-between-two-materials.490161/
     }
+
+    //ToDO: Lerp
+    // https://forum.unity.com/threads/lerp-between-two-materials.490161/
+    
+    
+    /*
+    IEnumerator ShowAndHide(GameObject[] spritesGO, float normalizedInput)
+       {
+           yield return new WaitForSeconds(1);
+           if (normalizedInput >= 0.6f)
+
+           {
+               disableSprites(spritesGO, 6);
+               spritesGO[6].GetComponent<SpriteRenderer>().enabled = true;
+
+           }
+
+           yield return new WaitForSeconds(1);
+           if (normalizedInput >= 0.6f)
+
+           {
+               disableSprites(spritesGO, 7);
+               spritesGO[7].GetComponent<SpriteRenderer>().enabled = true;
+
+           }
+
+           yield return new WaitForSeconds(1);
+           if (normalizedInput >= 0.6f)
+
+           {
+               disableSprites(spritesGO, 8);
+               spritesGO[8].GetComponent<SpriteRenderer>().enabled = true;
+
+           }
+
+           yield return new WaitForSeconds(1);
+           if (normalizedInput >= 0.6f)
+
+           {
+               disableSprites(spritesGO, 9);
+               spritesGO[9].GetComponent<SpriteRenderer>().enabled = true;
+
+           }
+
+           yield return new WaitForSeconds(1);
+           if (normalizedInput >= 0.6f)
+
+           {
+               disableSprites(spritesGO, 10);
+               spritesGO[10].GetComponent<SpriteRenderer>().enabled = true;
+
+           }
+    }
+     */
+
 }
