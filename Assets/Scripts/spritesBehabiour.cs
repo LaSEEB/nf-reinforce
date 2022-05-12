@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
+
 public class spritesBehabiour : MonoBehaviour
 {
     public LSLReceiver receiver;
-
     private float normalizedInput;
     private float normalizedThreshold;
 
@@ -13,6 +15,7 @@ public class spritesBehabiour : MonoBehaviour
     public bool scaleOn;
     public bool soundOn;
     public bool useColor;
+    public bool floatOn;
 
     private Color lerpedColor;
 
@@ -23,9 +26,11 @@ public class spritesBehabiour : MonoBehaviour
     //public List<Sprite> Sprites;
     public GameObject[] spritesGO;
 
+
     private float scallingFactor = 3.4f;
 
-    public static float timeout = 3.0f;
+    public static float timeout = 10.0f;
+
 
     void Start()
     {
@@ -69,7 +74,7 @@ public class spritesBehabiour : MonoBehaviour
         }
         else
         {
-            timeout = 3.0f;
+            timeout = 10.0f;
             Debug.Log("RESET: " + timeout);
         }
 
@@ -112,44 +117,83 @@ public class spritesBehabiour : MonoBehaviour
 
         }
 
-        if (normalizedInput > 0.6f && timeout <= 0.0f)
+        if (normalizedInput > 0.6f)
         {
             disableSprites(spritesGO, 6);
             spritesGO[6].GetComponent<SpriteRenderer>().enabled = true;
             //timeout = 1.0f;
-            Debug.Log("ABOVE THRESHOLD!");
-                
+            Debug.Log("2s ABOVE THRESHOLD!");
+
         }
 
-        /*
-       if (normalizedInput > 0.6f)
+        if (normalizedInput > 0.6f && timeout <= 8.0f)
+        {
+            disableSprites(spritesGO, 6);
+            spritesGO[6].GetComponent<SpriteRenderer>().enabled = true;
+            disableSprites(spritesGO, 7);
+            spritesGO[7].GetComponent<SpriteRenderer>().enabled = true;
+            //timeout = 1.0f;
+            Debug.Log("2s ABOVE THRESHOLD!");
 
-       {
-          void OnTriggerEnter(Collider other)
-           {
-               StartCoroutine(ShowAndHide(spritesGO[6], 0.05f)); // 1 second
-           }
-           IEnumerator ShowAndHide(GameObject spritesGO, float delay)
-           {
-               spritesGO.SetActive(true);
-               yield return new WaitForSeconds(delay);
-               spritesGO.SetActive(false);
-           }
+        }
 
-          disableSprites(spritesGO, 5);
-          spritesGO[6].GetComponent<SpriteRenderer>().enabled = true;
-         
-  
+        if (normalizedInput > 0.6f && timeout <= 6.0f)
+        {
+            disableSprites(spritesGO, 6);
+            spritesGO[6].GetComponent<SpriteRenderer>().enabled = true;
+            disableSprites(spritesGO, 7);
+            spritesGO[7].GetComponent<SpriteRenderer>().enabled = true;
+            disableSprites(spritesGO, 8);
+            spritesGO[8].GetComponent<SpriteRenderer>().enabled = true;
+            //timeout = 1.0f;
+            Debug.Log("4s ABOVE THRESHOLD!");
 
+        }
 
-       
-            if (normalizedInput >= 0.6f)
+        if (normalizedInput > 0.6f && timeout <= 4.0f)
+        {
+            disableSprites(spritesGO, 6);
+            spritesGO[6].GetComponent<SpriteRenderer>().enabled = true;
+            disableSprites(spritesGO, 7);
+            spritesGO[7].GetComponent<SpriteRenderer>().enabled = true;
+            disableSprites(spritesGO, 9);
+            spritesGO[9].GetComponent<SpriteRenderer>().enabled = true;
+            //timeout = 1.0f;
+            Debug.Log("6s ABOVE THRESHOLD!");
 
-            {
-                StartCoroutine(ShowAndHide(spritesGO, normalizedInput));
+        }
 
-            }
-         */
+        if (normalizedInput > 0.6f && timeout <= 2.0f)
+        {
+            disableSprites(spritesGO, 6);
+            spritesGO[6].GetComponent<SpriteRenderer>().enabled = true;
+            disableSprites(spritesGO, 7);
+            spritesGO[7].GetComponent<SpriteRenderer>().enabled = true;
+            disableSprites(spritesGO, 8);
+            spritesGO[8].GetComponent<SpriteRenderer>().enabled = true;
+            disableSprites(spritesGO, 10);
+            spritesGO[10].GetComponent<SpriteRenderer>().enabled = true;
+            //timeout = 1.0f;
+            Debug.Log("8s ABOVE THRESHOLD!");
+
+        }
+
+        if (normalizedInput > 0.6f && timeout <= 0.0f)
+        {
+            disableSprites(spritesGO, 6);
+            spritesGO[6].GetComponent<SpriteRenderer>().enabled = true;
+            disableSprites(spritesGO, 7);
+            spritesGO[7].GetComponent<SpriteRenderer>().enabled = true;
+            disableSprites(spritesGO, 8);
+            spritesGO[8].GetComponent<SpriteRenderer>().enabled = true;
+            disableSprites(spritesGO, 9);
+            spritesGO[9].GetComponent<SpriteRenderer>().enabled = true;
+            disableSprites(spritesGO, 11);
+            spritesGO[11].GetComponent<SpriteRenderer>().enabled = true;
+            //timeout = 1.0f;
+            Debug.Log("10s ABOVE THRESHOLD!");
+
+        }
 
         /* normalizedInput = receiver.normalizedInput;
          normalizedThreshold = valueScript.normalizedThreshold;
@@ -182,59 +226,7 @@ public class spritesBehabiour : MonoBehaviour
 
      */
     }
-
     //ToDO: Lerp
-    // https://forum.unity.com/threads/lerp-between-two-materials.490161/
-    
-    
-    /*
-    IEnumerator ShowAndHide(GameObject[] spritesGO, float normalizedInput)
-       {
-           yield return new WaitForSeconds(1);
-           if (normalizedInput >= 0.6f)
-
-           {
-               disableSprites(spritesGO, 6);
-               spritesGO[6].GetComponent<SpriteRenderer>().enabled = true;
-
-           }
-
-           yield return new WaitForSeconds(1);
-           if (normalizedInput >= 0.6f)
-
-           {
-               disableSprites(spritesGO, 7);
-               spritesGO[7].GetComponent<SpriteRenderer>().enabled = true;
-
-           }
-
-           yield return new WaitForSeconds(1);
-           if (normalizedInput >= 0.6f)
-
-           {
-               disableSprites(spritesGO, 8);
-               spritesGO[8].GetComponent<SpriteRenderer>().enabled = true;
-
-           }
-
-           yield return new WaitForSeconds(1);
-           if (normalizedInput >= 0.6f)
-
-           {
-               disableSprites(spritesGO, 9);
-               spritesGO[9].GetComponent<SpriteRenderer>().enabled = true;
-
-           }
-
-           yield return new WaitForSeconds(1);
-           if (normalizedInput >= 0.6f)
-
-           {
-               disableSprites(spritesGO, 10);
-               spritesGO[10].GetComponent<SpriteRenderer>().enabled = true;
-
-           }
-    }
-     */
-
+    // https://forum.unity.com/threads/lerp-between-two-materials.490161/  
+  
 }
