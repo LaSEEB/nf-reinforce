@@ -53,9 +53,10 @@ public class spritesBehabiour : MonoBehaviour
 
     void disableSprites(GameObject[] a,int now)
     {
-        for (int i = 0; i < 11; i++)
+        
+        for (int i = 0; i <= now; i++)
         {
-            if (i!=now)
+            //if (i!=now)
                 spritesGO[i].GetComponent<SpriteRenderer>().enabled = false;
 
         }
@@ -70,7 +71,7 @@ public class spritesBehabiour : MonoBehaviour
         if (normalizedInput > 0.6f)
         {
             timeout -= Time.deltaTime;
-            Debug.Log("timeout: "+ timeout + " input: " + normalizedInput);
+            //Debug.Log("timeout: "+ timeout + " input: " + normalizedInput);
         }
         else
         {
@@ -81,30 +82,30 @@ public class spritesBehabiour : MonoBehaviour
         if (normalizedInput > 0.1f && normalizedInput < 0.2f)
 
         {
-            disableSprites(spritesGO, 1);
-            spritesGO[1].GetComponent<SpriteRenderer>().enabled = true;
+            //disableSprites(spritesGO, 0);
+            spritesGO[0].GetComponent<SpriteRenderer>().enabled = true;
             Debug.Log("1");
         }
 
         if (normalizedInput > 0.2f && normalizedInput < 0.3f)
 
         {
-            disableSprites(spritesGO, 2);
-            spritesGO[2].GetComponent<SpriteRenderer>().enabled = true;
+            disableSprites(spritesGO, 0);
+            spritesGO[1].GetComponent<SpriteRenderer>().enabled = true;
             Debug.Log("2");
         }
         if (normalizedInput > 0.3f && normalizedInput < 0.4f)
 
         {
-            disableSprites(spritesGO, 3);
-            spritesGO[3].GetComponent<SpriteRenderer>().enabled = true;
+            disableSprites(spritesGO, 1);
+            spritesGO[2].GetComponent<SpriteRenderer>().enabled = true;
             Debug.Log("3");
         }
         if (normalizedInput > 0.4f && normalizedInput < 0.5f)
 
         {
-            disableSprites(spritesGO, 4);
-            spritesGO[4].GetComponent<SpriteRenderer>().enabled = true;
+            disableSprites(spritesGO, 2);
+            spritesGO[3].GetComponent<SpriteRenderer>().enabled = true;
             Debug.Log("entrou");
 
         }
@@ -112,44 +113,52 @@ public class spritesBehabiour : MonoBehaviour
         if (normalizedInput > 0.5f && normalizedInput < 0.6f)
 
         {
-            disableSprites(spritesGO, 5);
-            spritesGO[5].GetComponent<SpriteRenderer>().enabled = true;
+            disableSprites(spritesGO, 3);
+            spritesGO[4].GetComponent<SpriteRenderer>().enabled = true;
 
         }
 
         if (normalizedInput > 0.6f)
         {
-            disableSprites(spritesGO, 6);
-            spritesGO[6].GetComponent<SpriteRenderer>().enabled = true;
+            disableSprites(spritesGO, 4);
+            spritesGO[5].GetComponent<SpriteRenderer>().enabled = true;
             //timeout = 1.0f;
             Debug.Log("2s ABOVE THRESHOLD!");
 
         }
 
-        if (normalizedInput > 0.6f && timeout <= 8.0f)
+        // TODO: timeout thresholds below
+
+        //if (normalizedInput > 0.6f && timeout <= 8.0f)
+        if (timeout <= 8.0f)
         {
-            disableSprites(spritesGO, 6);
+            //disableSprites(spritesGO, 6);
+            //spritesGO[6].GetComponent<SpriteRenderer>().enabled = true;
+            //disableSprites(spritesGO, 7);
             spritesGO[6].GetComponent<SpriteRenderer>().enabled = true;
-            disableSprites(spritesGO, 7);
-            spritesGO[7].GetComponent<SpriteRenderer>().enabled = true;
             //timeout = 1.0f;
             Debug.Log("2s ABOVE THRESHOLD!");
 
         }
+        else
+            spritesGO[6].GetComponent<SpriteRenderer>().enabled = false;
 
-        if (normalizedInput > 0.6f && timeout <= 6.0f)
+        //if (normalizedInput > 0.6f && timeout <= 6.0f)
+        if (timeout <= 6.0f)
         {
-            disableSprites(spritesGO, 6);
-            spritesGO[6].GetComponent<SpriteRenderer>().enabled = true;
-            disableSprites(spritesGO, 7);
+            //disableSprites(spritesGO, 6);
+            // spritesGO[6].GetComponent<SpriteRenderer>().enabled = true;
+            //disableSprites(spritesGO, 7);
+            //spritesGO[7].GetComponent<SpriteRenderer>().enabled = true;
+            //disableSprites(spritesGO, 8);
             spritesGO[7].GetComponent<SpriteRenderer>().enabled = true;
-            disableSprites(spritesGO, 8);
-            spritesGO[8].GetComponent<SpriteRenderer>().enabled = true;
             //timeout = 1.0f;
             Debug.Log("4s ABOVE THRESHOLD!");
 
         }
-
+        else
+            spritesGO[7].GetComponent<SpriteRenderer>().enabled = false;
+        /*
         if (normalizedInput > 0.6f && timeout <= 4.0f)
         {
             disableSprites(spritesGO, 6);
@@ -194,6 +203,7 @@ public class spritesBehabiour : MonoBehaviour
             Debug.Log("10s ABOVE THRESHOLD!");
 
         }
+        */
 
         /* normalizedInput = receiver.normalizedInput;
          normalizedThreshold = valueScript.normalizedThreshold;
