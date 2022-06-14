@@ -12,18 +12,23 @@ public class mainMenu : MonoBehaviour {
     public GameObject sphereMenu;
     public GameObject cubeMenu;
     public GameObject sharedMenu;
+    public GameObject spritesMenu;
+
 
     public Text rawInputText;
     public Text normalizedInputText;
 
     public Button sphereButton;
     public Button cubeButton;
+    public Button spritesButton;
+
 
     public Text StreamNameLabel;
     public Text StreamTypeLabel;
 
     public GameObject sphereGroup;
     public GameObject cubeGroup;
+    public GameObject spritesGroup;
     public GameObject audioFB;
 
     public Camera mainCamera;
@@ -31,7 +36,7 @@ public class mainMenu : MonoBehaviour {
     public GameObject audioFBText;
 
     //private bool firstTime = true;
-    private bool lookAtSphere = true;
+    private bool lookAtSprite = true;
 
     void Start()
     {
@@ -47,6 +52,41 @@ public class mainMenu : MonoBehaviour {
         normalizedInputText.text = receiver.normalizedInput.ToString();
     }
 
+    //for the spritesButton
+    public void spritesFBOn()
+    {
+        //if (!sharedMenu.activeInHierarchy)
+        //    sharedMenu.SetActive(true);
+
+        cubeMenu.SetActive(false);
+        sphereMenu.SetActive(false);
+        spritesMenu.SetActive(true);
+
+        //sphereButton.enabled = false;
+        //cubeButton.enabled = true;
+
+        cubeGroup.SetActive(false);
+        audioFB.SetActive(false);
+        audioFBText.SetActive(false);
+        sphereGroup.SetActive(false);
+        spritesGroup.SetActive(true);
+
+        if (!lookAtSprite)
+        {
+            mainCamera.transform.Rotate(new Vector3(0, 180, 0));
+            lookAtSprite = true;
+        }
+
+        //if (firstTime)
+        //   firstTime = false;
+        //else
+        //  mainCamera.transform.Rotate(new Vector3(0, 180, 0));
+
+        //Debug.Log("ANGOLO y: " + mainCamera.transform.eulerAngles.y);
+
+    }
+
+
     //for the sphereButton
     public void sphereFBOn()
     {
@@ -55,6 +95,7 @@ public class mainMenu : MonoBehaviour {
 
         cubeMenu.SetActive(false);        
         sphereMenu.SetActive(true);
+        spritesMenu.SetActive(false);
 
         //sphereButton.enabled = false;
         //cubeButton.enabled = true;
@@ -63,11 +104,12 @@ public class mainMenu : MonoBehaviour {
         audioFB.SetActive(false);
         audioFBText.SetActive(false);
         sphereGroup.SetActive(true);
+        spritesGroup.SetActive(false);
 
-        if (!lookAtSphere)
+        if (lookAtSprite)
         {
             mainCamera.transform.Rotate(new Vector3(0, 180, 0));
-            lookAtSphere = true;
+            lookAtSprite = false;
         }
 
         //if (firstTime)
@@ -87,6 +129,7 @@ public class mainMenu : MonoBehaviour {
 
         sphereMenu.SetActive(false);
         cubeMenu.SetActive(true);
+        spritesMenu.SetActive(false);
 
         //cubeButton.enabled = false;
         //sphereButton.enabled = true;
@@ -95,11 +138,12 @@ public class mainMenu : MonoBehaviour {
         audioFB.SetActive(false);
         audioFBText.SetActive(false);
         cubeGroup.SetActive(true);
+        spritesGroup.SetActive(false);
 
-        if (lookAtSphere)
+        if (lookAtSprite)
         {
             mainCamera.transform.Rotate(new Vector3(0, 180, 0));
-            lookAtSphere = false;
+            lookAtSprite = false;
         }
         
 
@@ -112,9 +156,11 @@ public class mainMenu : MonoBehaviour {
     {
         sphereMenu.SetActive(false);
         cubeMenu.SetActive(false);
+        spritesMenu.SetActive(false);
 
         sphereGroup.SetActive(false);
         cubeGroup.SetActive(false);
+        spritesGroup.SetActive(false);
 
         audioFB.SetActive(true);
         audioFBText.SetActive(true);

@@ -31,7 +31,7 @@ public class valueScript : MonoBehaviour
 
         if (values.displays == 2)
         {
-            SceneManager.LoadScene("feedback", LoadSceneMode.Additive);
+            SceneManager.LoadScene("feedback_new", LoadSceneMode.Additive);
         }
         else if(values.displays == 1)
         {
@@ -82,7 +82,7 @@ public class valueScript : MonoBehaviour
 
     void loadFB()
     {
-        SceneManager.LoadScene("feedback");
+        SceneManager.LoadScene("feedback_new");
     }
 
 
