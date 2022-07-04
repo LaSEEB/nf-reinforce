@@ -100,39 +100,18 @@ public class spritesBehabiour : MonoBehaviour
             spritesGO[0].GetComponent<SpriteRenderer>().enabled = true;
             Debug.Log("1");
         }
+         else
+            spritesGO[0].GetComponent<SpriteRenderer>().enabled = false;
         
         if (normalizedInput < 2* (normalizedThreshold/2) && normalizedInput > normalizedThreshold / 2)
 
         {
-            disableSprites(spritesGO, 0);
+            //disableSprites(spritesGO, 0);
             spritesGO[1].GetComponent<SpriteRenderer>().enabled = true;
             Debug.Log("2");
         }
-        /*
-        if (normalizedInput < 2*(normalizedThreshold / 4) && normalizedInput >  normalizedThreshold / 4)
-          
-        {
-            disableSprites(spritesGO, 1);
-            spritesGO[2].GetComponent<SpriteRenderer>().enabled = true;
-            Debug.Log("3");
-        }
-        if (normalizedInput < 3 * (normalizedThreshold / 4) && normalizedInput > 2 * (normalizedThreshold / 4))
-
-        {
-            disableSprites(spritesGO, 2);
-            spritesGO[3].GetComponent<SpriteRenderer>().enabled = true;
-            Debug.Log("entrou");
-
-        }
-
-        
-        if (normalizedInput < 4 * (normalizedThreshold / 4) && normalizedInput > 3 * (normalizedThreshold / 4))
-
-        {
-            disableSprites(spritesGO, 3);
-            spritesGO[4].GetComponent<SpriteRenderer>().enabled = true;
-
-        }
+        else
+            spritesGO[1].GetComponent<SpriteRenderer>().enabled = false;
         
         if (normalizedInput > normalizedThreshold)
         {
@@ -307,7 +286,7 @@ public class spritesBehabiour : MonoBehaviour
 
 
         // TROPICAL GAME --> 2 SESSIONS --> WHEN NOT USED PUT IN COMMENT
-        
+
         if (normalizedInput < normalizedThreshold / 2)
         {
             //disableSprites(spritesGO, 0);
