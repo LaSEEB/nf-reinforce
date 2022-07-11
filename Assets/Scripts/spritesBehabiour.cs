@@ -26,7 +26,7 @@ public class spritesBehabiour : MonoBehaviour
 
     private float scallingFactor = 3.4f;
 
-    public static float timeout = 20.0f;
+    public static float timeout = 40.0f;
 
     public Camera cam;
 
@@ -34,8 +34,8 @@ public class spritesBehabiour : MonoBehaviour
     {
         //Sprites
         initSprites();
-        //spritesGO[0].GetComponent<SpriteRenderer>().enabled = true;  //take the comment if UNDERWATER GAME
-        spritesGO[26].GetComponent<SpriteRenderer>().enabled = true; //take the comment if TROPICAL GAME
+        spritesGO[0].GetComponent<SpriteRenderer>().enabled = true;  //take the comment if UNDERWATER GAME
+        //spritesGO[26].GetComponent<SpriteRenderer>().enabled = true; //take the comment if TROPICAL GAME
         Debug.Log("Start");
 
     }
@@ -86,14 +86,14 @@ public class spritesBehabiour : MonoBehaviour
         }
         else
         {
-            timeout = 20.0f;
+            timeout = 40.0f;
             Debug.Log("RESET: " + timeout);
             cam.fieldOfView = Mathf.MoveTowards(cam.fieldOfView, 60, zoomout * Time.deltaTime);
 
         }
 
         // UNDERWATER GAME --> 2 SESSIONS --> WHEN NOT USED PUT IN COMMENT
-        /*
+        
         if (normalizedInput < normalizedThreshold/2)
         {
             //disableSprites(spritesGO, 0);
@@ -115,14 +115,16 @@ public class spritesBehabiour : MonoBehaviour
         
         if (normalizedInput > normalizedThreshold)
         {
-            disableSprites(spritesGO, 4);
-            spritesGO[4].GetComponent<SpriteRenderer>().enabled = true;
+           // disableSprites(spritesGO, 5);
+            spritesGO[5].GetComponent<SpriteRenderer>().enabled = true;
 
             cam.fieldOfView = Mathf.MoveTowards(cam.fieldOfView, x, zoomSpeed * Time.deltaTime);
 
         }
-         
-        if (timeout <= 19.0f)
+        else
+            spritesGO[5].GetComponent<SpriteRenderer>().enabled = false;
+
+        if (timeout <= 38.0f)
         {
             spritesGO[6].GetComponent<SpriteRenderer>().enabled = true;
 
@@ -130,7 +132,7 @@ public class spritesBehabiour : MonoBehaviour
         else
             spritesGO[6].GetComponent<SpriteRenderer>().enabled = false;
 
-        if (timeout <= 18.0f)
+        if (timeout <= 36.0f)
         {
             spritesGO[7].GetComponent<SpriteRenderer>().enabled = true;
 
@@ -138,7 +140,7 @@ public class spritesBehabiour : MonoBehaviour
         else
             spritesGO[7].GetComponent<SpriteRenderer>().enabled = false;
         
-        if (timeout <= 17.0f)
+        if (timeout <= 34.0f)
         {
             spritesGO[8].GetComponent<SpriteRenderer>().enabled = true;
 
@@ -146,7 +148,7 @@ public class spritesBehabiour : MonoBehaviour
         else
             spritesGO[8].GetComponent<SpriteRenderer>().enabled = false;
 
-        if (timeout <= 16.0f)
+        if (timeout <= 32.0f)
         {
             spritesGO[9].GetComponent<SpriteRenderer>().enabled = true;
 
@@ -154,7 +156,7 @@ public class spritesBehabiour : MonoBehaviour
         else
             spritesGO[9].GetComponent<SpriteRenderer>().enabled = false;
 
-        if (timeout <= 15.0f)
+        if (timeout <= 30.0f)
         {
             spritesGO[10].GetComponent<SpriteRenderer>().enabled = true;
 
@@ -162,7 +164,7 @@ public class spritesBehabiour : MonoBehaviour
         else
             spritesGO[10].GetComponent<SpriteRenderer>().enabled = false;
 
-        if (timeout <= 14.0f)
+        if (timeout <= 28.0f)
         {
             spritesGO[11].GetComponent<SpriteRenderer>().enabled = true;
 
@@ -170,7 +172,7 @@ public class spritesBehabiour : MonoBehaviour
         else
             spritesGO[11].GetComponent<SpriteRenderer>().enabled = false;
 
-        if (timeout <= 13.0f)
+        if (timeout <= 26.0f)
         {
             spritesGO[12].GetComponent<SpriteRenderer>().enabled = true;
 
@@ -178,7 +180,7 @@ public class spritesBehabiour : MonoBehaviour
         else
             spritesGO[12].GetComponent<SpriteRenderer>().enabled = false;
 
-        if (timeout <= 12.0f)
+        if (timeout <= 24.0f)
         {
             spritesGO[13].GetComponent<SpriteRenderer>().enabled = true;
 
@@ -186,7 +188,7 @@ public class spritesBehabiour : MonoBehaviour
         else
             spritesGO[13].GetComponent<SpriteRenderer>().enabled = false;
 
-        if (timeout <= 11.0f)
+        if (timeout <= 22.0f)
         {
             spritesGO[14].GetComponent<SpriteRenderer>().enabled = true;
 
@@ -194,7 +196,7 @@ public class spritesBehabiour : MonoBehaviour
         else
             spritesGO[14].GetComponent<SpriteRenderer>().enabled = false;
 
-        if (timeout <= 10.0f)
+        if (timeout <= 20.0f)
         {
             spritesGO[15].GetComponent<SpriteRenderer>().enabled = true;
 
@@ -202,7 +204,7 @@ public class spritesBehabiour : MonoBehaviour
         else
             spritesGO[15].GetComponent<SpriteRenderer>().enabled = false;
 
-        if (timeout <= 9.0f)
+        if (timeout <= 18.0f)
         {
             spritesGO[16].GetComponent<SpriteRenderer>().enabled = true;
 
@@ -210,7 +212,7 @@ public class spritesBehabiour : MonoBehaviour
         else
             spritesGO[16].GetComponent<SpriteRenderer>().enabled = false;
 
-        if (timeout <= 8.0f)
+        if (timeout <= 16.0f)
         {
             spritesGO[17].GetComponent<SpriteRenderer>().enabled = true;
 
@@ -218,7 +220,7 @@ public class spritesBehabiour : MonoBehaviour
         else
             spritesGO[17].GetComponent<SpriteRenderer>().enabled = false;
 
-        if (timeout <= 7.0f)
+        if (timeout <= 14.0f)
         {
             spritesGO[18].GetComponent<SpriteRenderer>().enabled = true;
 
@@ -226,7 +228,7 @@ public class spritesBehabiour : MonoBehaviour
         else
             spritesGO[18].GetComponent<SpriteRenderer>().enabled = false;
 
-        if (timeout <= 6.0f)
+        if (timeout <= 12.0f)
         {
             spritesGO[19].GetComponent<SpriteRenderer>().enabled = true;
 
@@ -234,7 +236,7 @@ public class spritesBehabiour : MonoBehaviour
         else
             spritesGO[19].GetComponent<SpriteRenderer>().enabled = false;
 
-        if (timeout <= 5.0f)
+        if (timeout <= 10.0f)
         {
             spritesGO[20].GetComponent<SpriteRenderer>().enabled = true;
 
@@ -242,7 +244,7 @@ public class spritesBehabiour : MonoBehaviour
         else
             spritesGO[20].GetComponent<SpriteRenderer>().enabled = false;
 
-        if (timeout <= 4.0f)
+        if (timeout <= 8.0f)
         {
             spritesGO[21].GetComponent<SpriteRenderer>().enabled = true;
 
@@ -250,7 +252,7 @@ public class spritesBehabiour : MonoBehaviour
         else
             spritesGO[21].GetComponent<SpriteRenderer>().enabled = false;
 
-        if (timeout <= 3.0f)
+        if (timeout <= 6.0f)
         {
             spritesGO[22].GetComponent<SpriteRenderer>().enabled = true;
 
@@ -258,7 +260,7 @@ public class spritesBehabiour : MonoBehaviour
         else
             spritesGO[22].GetComponent<SpriteRenderer>().enabled = false;
 
-        if (timeout <= 2.0f)
+        if (timeout <= 4.0f)
         {
             spritesGO[23].GetComponent<SpriteRenderer>().enabled = true;
 
@@ -266,7 +268,7 @@ public class spritesBehabiour : MonoBehaviour
         else
             spritesGO[23].GetComponent<SpriteRenderer>().enabled = false;
 
-        if (timeout <= 1.0f)
+        if (timeout <= 2.0f)
         {
             spritesGO[24].GetComponent<SpriteRenderer>().enabled = true;
 
@@ -282,11 +284,11 @@ public class spritesBehabiour : MonoBehaviour
         else
             spritesGO[25].GetComponent<SpriteRenderer>().enabled = false;
 
-        */
+        
 
 
         // TROPICAL GAME --> 2 SESSIONS --> WHEN NOT USED PUT IN COMMENT
-
+        /*
         if (normalizedInput < normalizedThreshold / 2)
         {
             //disableSprites(spritesGO, 0);
@@ -315,7 +317,7 @@ public class spritesBehabiour : MonoBehaviour
         else
             spritesGO[28].GetComponent<SpriteRenderer>().enabled = false;
 
-        if (timeout <= 19.0f)
+        if (timeout <= 38.0f)
         {
             spritesGO[29].GetComponent<SpriteRenderer>().enabled = true;
 
@@ -323,7 +325,7 @@ public class spritesBehabiour : MonoBehaviour
         else
             spritesGO[29].GetComponent<SpriteRenderer>().enabled = false;
 
-        if (timeout <= 18.0f)
+        if (timeout <= 36.0f)
         {
             spritesGO[30].GetComponent<SpriteRenderer>().enabled = true;
 
@@ -331,7 +333,7 @@ public class spritesBehabiour : MonoBehaviour
         else
             spritesGO[30].GetComponent<SpriteRenderer>().enabled = false;
 
-        if (timeout <= 17.0f)
+        if (timeout <= 34.0f)
         {
             spritesGO[31].GetComponent<SpriteRenderer>().enabled = true;
 
@@ -339,7 +341,7 @@ public class spritesBehabiour : MonoBehaviour
         else
             spritesGO[31].GetComponent<SpriteRenderer>().enabled = false;
 
-        if (timeout <= 16.0f)
+        if (timeout <= 32.0f)
         {
             spritesGO[32].GetComponent<SpriteRenderer>().enabled = true;
 
@@ -347,7 +349,7 @@ public class spritesBehabiour : MonoBehaviour
         else
             spritesGO[32].GetComponent<SpriteRenderer>().enabled = false;
 
-        if (timeout <= 15.0f)
+        if (timeout <= 30.0f)
         {
             spritesGO[33].GetComponent<SpriteRenderer>().enabled = true;
 
@@ -355,7 +357,7 @@ public class spritesBehabiour : MonoBehaviour
         else
             spritesGO[33].GetComponent<SpriteRenderer>().enabled = false;
 
-        if (timeout <= 14.0f)
+        if (timeout <= 28.0f)
         {
             spritesGO[34].GetComponent<SpriteRenderer>().enabled = true;
 
@@ -363,7 +365,7 @@ public class spritesBehabiour : MonoBehaviour
         else
             spritesGO[34].GetComponent<SpriteRenderer>().enabled = false;
 
-        if (timeout <= 13.0f)
+        if (timeout <= 26.0f)
         {
             spritesGO[35].GetComponent<SpriteRenderer>().enabled = true;
 
@@ -371,7 +373,7 @@ public class spritesBehabiour : MonoBehaviour
         else
             spritesGO[35].GetComponent<SpriteRenderer>().enabled = false;
 
-        if (timeout <= 12.0f)
+        if (timeout <= 24.0f)
         {
             spritesGO[36].GetComponent<SpriteRenderer>().enabled = true;
 
@@ -379,7 +381,7 @@ public class spritesBehabiour : MonoBehaviour
         else
             spritesGO[36].GetComponent<SpriteRenderer>().enabled = false;
 
-        if (timeout <= 11.0f)
+        if (timeout <= 22.0f)
         {
             spritesGO[37].GetComponent<SpriteRenderer>().enabled = true;
 
@@ -387,7 +389,7 @@ public class spritesBehabiour : MonoBehaviour
         else
             spritesGO[37].GetComponent<SpriteRenderer>().enabled = false;
 
-        if (timeout <= 10.0f)
+        if (timeout <= 20.0f)
         {
             spritesGO[38].GetComponent<SpriteRenderer>().enabled = true;
 
@@ -395,7 +397,7 @@ public class spritesBehabiour : MonoBehaviour
         else
             spritesGO[38].GetComponent<SpriteRenderer>().enabled = false;
 
-        if (timeout <= 9.0f)
+        if (timeout <= 18.0f)
         {
             spritesGO[39].GetComponent<SpriteRenderer>().enabled = true;
 
@@ -403,7 +405,7 @@ public class spritesBehabiour : MonoBehaviour
         else
             spritesGO[39].GetComponent<SpriteRenderer>().enabled = false;
         
-        if (timeout <= 8.0f)
+        if (timeout <= 16.0f)
         {
             spritesGO[40].GetComponent<SpriteRenderer>().enabled = true;
 
@@ -411,7 +413,7 @@ public class spritesBehabiour : MonoBehaviour
         else
             spritesGO[40].GetComponent<SpriteRenderer>().enabled = false;
 
-        if (timeout <= 7.0f)
+        if (timeout <= 14.0f)
         {
             spritesGO[41].GetComponent<SpriteRenderer>().enabled = true;
 
@@ -419,7 +421,7 @@ public class spritesBehabiour : MonoBehaviour
         else
             spritesGO[41].GetComponent<SpriteRenderer>().enabled = false;
 
-        if (timeout <= 6.0f)
+        if (timeout <= 12.0f)
         {
             spritesGO[42].GetComponent<SpriteRenderer>().enabled = true;
 
@@ -428,7 +430,7 @@ public class spritesBehabiour : MonoBehaviour
             spritesGO[42].GetComponent<SpriteRenderer>().enabled = false;
 
         
-        if (timeout <= 5.0f)
+        if (timeout <= 10.0f)
         {
             spritesGO[43].GetComponent<SpriteRenderer>().enabled = true;
 
@@ -436,7 +438,7 @@ public class spritesBehabiour : MonoBehaviour
         else
             spritesGO[43].GetComponent<SpriteRenderer>().enabled = false;
 
-        if (timeout <= 4.0f)
+        if (timeout <= 8.0f)
         {
             spritesGO[44].GetComponent<SpriteRenderer>().enabled = true;
 
@@ -444,7 +446,7 @@ public class spritesBehabiour : MonoBehaviour
         else
             spritesGO[44].GetComponent<SpriteRenderer>().enabled = false;
 
-        if (timeout <= 3.0f)
+        if (timeout <= 6.0f)
         {
             spritesGO[45].GetComponent<SpriteRenderer>().enabled = true;
 
@@ -452,7 +454,7 @@ public class spritesBehabiour : MonoBehaviour
         else
             spritesGO[45].GetComponent<SpriteRenderer>().enabled = false;
 
-        if (timeout <= 2.0f)
+        if (timeout <= 4.0f)
         {
             spritesGO[46].GetComponent<SpriteRenderer>().enabled = true;
 
@@ -460,7 +462,7 @@ public class spritesBehabiour : MonoBehaviour
         else
             spritesGO[46].GetComponent<SpriteRenderer>().enabled = false;
         /*
-        if (timeout <= 1.0f)
+        if (timeout <= 2.0f)
         {
             spritesGO[24].GetComponent<SpriteRenderer>().enabled = true;
 
