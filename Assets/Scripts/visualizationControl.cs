@@ -11,7 +11,6 @@ public class visualizationControl : MonoBehaviour {
     public GameObject intervalPanel;
     public GameObject endPanel;
 
-
     public Canvas pauseCanvas;
     public Button backBt;
 
@@ -32,12 +31,17 @@ public class visualizationControl : MonoBehaviour {
     {
         scenarios.SetActive(receiver.trial);
         intervalPanel.SetActive(!receiver.trial);
+        if (receiver.trial == false)
+        {
+            spritesBehabiour.timeout = 60.0f;
+        }
 
         if (receiver.experimentEnd)
         {
             scenarios.SetActive(false);
             intervalPanel.SetActive(false);
             endPanel.SetActive(true);
+            //timeout = 60.0f;
         }
        		
 	}

@@ -15,6 +15,7 @@ public class LSLReceiverMarkers : AIntInlet
     private const int startTrial = 33282;    
     private const int endTrial = 33283;
     private const int experimentStop = 32770;
+    //public static float timeout = 60.0f;
 
 
     protected override void AdditionalStart()
@@ -35,6 +36,7 @@ public class LSLReceiverMarkers : AIntInlet
         else if (marker == endTrial)
         {
             trial = false;
+            //timeout = 60.0f;
         }
         else if (marker == experimentStop)
         {
