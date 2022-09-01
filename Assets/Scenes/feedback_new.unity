@@ -6553,7 +6553,6 @@ MonoBehaviour:
   useColor: 0
   floatOn: 0
   smoothTime: 20
-  zoomSpeed: 1
   zoomout: 6
   velocity: {x: 0, y: 0, z: 0}
   spritesGO:
@@ -6620,6 +6619,8 @@ MonoBehaviour:
   - {fileID: 1818129087}
   - {fileID: 763448791}
   - {fileID: 1920501680}
+  defaultFov: 90
+  zoomDuration: 2
   cam: {fileID: 1764292831}
 --- !u!1 &879884253
 GameObject:

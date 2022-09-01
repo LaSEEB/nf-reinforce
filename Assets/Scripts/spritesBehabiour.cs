@@ -30,7 +30,7 @@ public class spritesBehabiour : MonoBehaviour
     private float scallingFactor = 3.4f;
 
    //public float zoomMultiplier = 2;
-    public float defaultFov = 90;
+    public float defaultFov = 60;
     public float zoomDuration = 1;
 
     public static float timeout = 60.0f;
@@ -41,8 +41,8 @@ public class spritesBehabiour : MonoBehaviour
     {
         //Sprites
         initSprites();
-        //spritesGO[0].GetComponent<SpriteRenderer>().enabled = true;  //take the comment if UNDERWATER GAME
-        spritesGO[36].GetComponent<SpriteRenderer>().enabled = true; //take the comment if TROPICAL GAME
+        spritesGO[0].GetComponent<SpriteRenderer>().enabled = true;  //take the comment if UNDERWATER GAME
+        //spritesGO[36].GetComponent<SpriteRenderer>().enabled = true; //take the comment if TROPICAL GAME
         Debug.Log("Start");
 
     }
@@ -94,6 +94,7 @@ public class spritesBehabiour : MonoBehaviour
             ZoomCamera(defaultFov * normalizedInput);
             //cam.fieldOfView = Mathf.MoveTowards(cam.fieldOfView, defaultFov * normalizedInput, zoomDuration * smoothTime);
             //cam.fieldOfView = Mathf.MoveTowards(cam.fieldOfView, defaultFov * normalizedInput, zoomDuration * Time.deltaTime);
+
         }
 
         else
@@ -108,7 +109,7 @@ public class spritesBehabiour : MonoBehaviour
    
 
         // UNDERWATER GAME --> 2 SESSIONS --> WHEN NOT USED PUT IN COMMENT
-        /*
+        
         if (normalizedInput < normalizedThreshold/2)
         {
             //disableSprites(spritesGO, 0);
@@ -133,7 +134,7 @@ public class spritesBehabiour : MonoBehaviour
            // disableSprites(spritesGO, 5);
             spritesGO[5].GetComponent<SpriteRenderer>().enabled = true;
 
-            cam.fieldOfView = Mathf.MoveTowards(cam.fieldOfView, 30, zoomSpeed * Time.deltaTime);
+            //cam.fieldOfView = Mathf.MoveTowards(cam.fieldOfView, 30, zoomSpeed * Time.deltaTime);
 
         }
         else
@@ -415,7 +416,7 @@ public class spritesBehabiour : MonoBehaviour
 
 
         // TROPICAL GAME --> 2 SESSIONS --> WHEN NOT USED PUT IN COMMENT
-        
+        /*
         if (normalizedInput < normalizedThreshold / 2)
         {
             //disableSprites(spritesGO, 0);
@@ -635,7 +636,7 @@ public class spritesBehabiour : MonoBehaviour
         }
         else
             spritesGO[62].GetComponent<SpriteRenderer>().enabled = false;
-        
+        */
     }
 
     void ZoomCamera(float target)
